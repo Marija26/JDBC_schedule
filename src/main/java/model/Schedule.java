@@ -39,6 +39,7 @@ public class Schedule {
 
     @Override
     public int hashCode() {
+
         int result = id;
         result = 31 * result + suserId;
         result = 31 * result + (startLess != null ? startLess.hashCode() : 0);
