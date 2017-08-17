@@ -1,0 +1,14 @@
+DROP TABLE IF EXISTS schedule;
+DROP SEQUENCE IF EXISTS global_seq;
+CREATE SEQUENCE global_seq START 100;
+CREATE TABLE schedule (
+  id        INTEGER PRIMARY KEY DEFAULT nextval('global_seq'),
+  startLess TIMESTAMP DEFAULT NULL,
+  endLess   TIMESTAMP DEFAULT NULL,
+  subject   VARCHAR(45) NOT NULL,
+  suserId INTEGER NOT NULL,
+  FOREIGN KEY (suserId)
+  REFERENCES users (userid)
+  ON DELETE CASCADE
+
+)
